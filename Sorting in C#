@@ -1,0 +1,97 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Insert_Sort
+{
+    class Program
+    {
+
+        public static void Insert_sort(int[] arr)
+        {
+            int i, j, key;
+            for (i = 1; i < arr.Length; i++)
+            {
+                key = arr[i];
+                j = i - 1;
+
+                while (j >= 0 && arr[j] > key)
+                {
+                    arr[j + 1] = arr[j];
+                    j = j - 1;
+                }
+                arr[j + 1] = key;
+            }
+        }
+
+        public static void swap(ref int  a,ref  int b)
+        {
+            int temp = 0;
+
+            a = temp;
+            a = b;
+            b = temp;
+
+        }
+        public static void Bubble_sort(int[] arr)
+        {
+            int i, j,temp;
+            for (i = 1; i < arr.Length-1; i++)
+            {
+                for (j = 0; j <= arr.Length-1-i; j++)
+                {
+                    if(arr[j] > arr[j+1])
+                    {
+
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                      
+                    }
+                }
+
+            }
+        }
+
+        public static void Print_arr(int[] arr)
+        {
+            int i;
+
+            for (i = 0; i < arr.Length; i++)
+            {
+                Console.Write(" " + arr[i]);
+            }
+        }
+
+        public static void test( int[] arr)
+        {
+            arr[0] = 9;
+           // drek(arr);
+          //  swap(arr[0]-->, arr[1]);
+        }
+        public static void drek(int[] arr)
+        {
+            arr[0] = 0;
+        }
+        public static void Main(string[] args)
+        {
+            int[] arr = { 4, 3, 2, 1, 5 };
+            //swap(ref i, ref j);
+            //Console.Write("this i" + i);
+            test(arr);         
+
+            Console.WriteLine("The Arr before:");
+            Print_arr(arr);
+            Bubble_sort(arr);
+            Console.WriteLine();
+            Console.WriteLine("The Arr After:");
+            Print_arr(arr);
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
+
+        }
+    }
+}
